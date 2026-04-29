@@ -4,4 +4,16 @@
 
 let euler1=()=>alert();
 
-let eulerCustom=()=>alert()
+let eulerCustom = () => {
+    let a = parseInt(document.getElementById("a").value);
+    let b = parseInt(document.getElementById("b").value);
+    let n = parseInt(document.getElementById("n").value);
+
+    let sum = 0;
+    for (let i = 1; i < n; i++) {
+        if (i % a === 0 || i % b === 0) {
+            sum += i;
+        }
+    }
+    alert("sum of multiples" + sum);
+};
