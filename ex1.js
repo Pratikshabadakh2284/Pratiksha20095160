@@ -9,7 +9,8 @@
 
 let check = () => {
   let w = parseInt(document.getElementById('weight').value);
-  alert("Hello, checking your baggage weight.....  ", + w)
+  alert("Hello, checking your baggage weight.....  ", + w + "kg");
+ 
   if (w > 15) {
     let extraBaggage = w-15;
     document.getElementById('removed').style = 'display:block;'
@@ -17,7 +18,7 @@ let check = () => {
     alert("your baggage is overweight by  "+ extraBaggage + "kg..");
   }
   else {
-    alert("Weight Ok: " =+ w +  "kg you can proceed....")
+    alert("Weight Ok: " + w +  "kg you can proceed....")
   }
 }
 
