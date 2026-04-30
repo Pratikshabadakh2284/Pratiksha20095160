@@ -9,15 +9,16 @@
 
 let check = () => {
   let w = parseInt(document.getElementById('weight').value);
-  alert("Hello, checking your baggage weight.....  ", + w)
+
+  alert("Hello, checking your baggage weight..... " + w);
+
   if (w > 15) {
-    let extraBaggage = w-15;
-    document.getElementById('removed').style = 'display:block;'
-    document.getElementById('remB').style = 'display:block;'
-    alert("your baggage is overweight by  "+ extraBaggage + "kg..");
-  }
-  else {
-    alert("Weight Ok: " =+ w +  "kg you can proceed....")
+    let extraBaggage = w - 15;
+    document.getElementById('removed').style = 'display:block;';
+    document.getElementById('remB').style = 'display:block;';
+    alert("Your baggage is overweight by " + extraBaggage + " kg.");
+  } else {
+    alert("Weight OK: " + w + " kg, you can proceed....");
   }
 }
 
