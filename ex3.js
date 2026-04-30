@@ -14,8 +14,8 @@ let listEuler3=(a,l)=>0;//obviously wrong - compute the sum of multiples in list
 
 let eulerlist=()=>
 {
-   let a = parseInt(document.getElementById('a').value);
-   let b = parseInt(document.getElementById('b').value);
+   let a = parseInt(document.getElementById('a1').value);
+   let b = parseInt(document.getElementById('b1').value);
    let l = document.getElementById('l').value.split(" ").map((x=>parseInt(x));
    listEuler1(a,b,l);
 };
