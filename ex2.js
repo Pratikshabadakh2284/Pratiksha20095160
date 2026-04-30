@@ -9,7 +9,7 @@ let euler1=()=>{
       sum += i;
     }
   }
-    alert("sum of multiples" + sum);
+    alert("sum of multiples " + sum);
 };
 
 let eulerCustom = () => {
