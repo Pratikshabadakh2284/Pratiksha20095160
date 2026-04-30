@@ -2,7 +2,15 @@
 //https://projecteuler.net/problem=1
 //ex2 should output the sum of all multiples of a or b less than n
 
-let euler1=()=>alert();
+let euler1=()=>{
+    let sum = 0;
+     for (let i = 1; i < 1000; i++) {
+        if (i % a === 3 || i % b === 5) {
+            sum += i;
+        }
+    }
+    alert("sum of multiples" + sum);
+};
 
 let eulerCustom = () => {
     let a = parseInt(document.getElementById("a").value);
