@@ -6,19 +6,26 @@
             //the remove function should update the weight
             //and let the user know when ok to proceed
 
+let extraBaggage = 0;
 
 let check = () => {
   let w = parseInt(document.getElementById('weight').value);
-  alert("Hello, checking your baggage weight.....  ", + w + "kg");
+  alert("Hello, checking your baggage weight.....  " + w + "kg");
  
   if (w > 15) {
-    let extraBaggage = w-15;
-    document.getElementById('removed').style = 'display:block;'
-    document.getElementById('remB').style = 'display:block;'
-    alert("your baggage is overweight by  "+ extraBaggage + "kg..");
+    extraBaggage = w - 15;
+    document.getElementById('removed').style = 'display:block;';
+    const remButton = document.getElementById('remB');
+    remButton.style = 'display:block;';
+    remButton.textContent = `Remove ${extraBaggage} kg baggage`;
+    document.getElementById('removed').value = extraBaggage;
+    alert("your baggage is overweight by  " + extraBaggage + "kg..");
   }
   else {
-    alert("Weight Ok: " + w +  "kg you can proceed....")
+    extraBaggage = 0;
+    document.getElementById('removed').style = 'display:none;';
+    document.getElementById('remB').style = 'display:none;';
+    alert("Weight Ok: " + w +  "kg you can proceed....");
   }
 }
 
@@ -27,11 +34,9 @@ let remove = () => {
   let removedWeight = parseInt(document.getElementById('removed').value);
   let newWeight = actualWeight - removedWeight;
   if (newWeight <= 15) {
-    alert("new weight: " + newWeight + "kg Ok you can proceed....")
+    alert("new weight: " + newWeight + "kg Ok you can proceed....");
   }
   else {
-    alert("Still overweight ", + newWeight + "kg");
+    alert("Still overweight " + newWeight + "kg");
   }
 }
-
-            //Test edit no. 2;

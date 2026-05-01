@@ -23,5 +23,5 @@ let eulerCustom = () => {
             sum += i;
         }
     }
-    alert("sum of multiples" + sum);
+    alert("sum of multiples " + sum);
 };
