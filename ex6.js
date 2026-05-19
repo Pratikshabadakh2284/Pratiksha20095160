@@ -32,6 +32,16 @@ async function getMostForkedRepo(username) {
   }
 }
 
+async function showMostForkedRepo() {
+  const username = document.getElementById('github-username').value.trim();
+  const resultElement = document.getElementById('github-result');
 
-getMostForkedRepo('Pratikshabadakh2284')
-  .then(console.log);
+  if (!username) {
+    resultElement.textContent = 'Please enter a GitHub username.';
+    return;
+  }
+
+  resultElement.textContent = 'Loading...';
+  const result = await getMostForkedRepo(username);
+  resultElement.textContent = result;
+}
