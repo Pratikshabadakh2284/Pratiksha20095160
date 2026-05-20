@@ -1,9 +1,4 @@
-    let parse=(i)=>{
-      o=parseInt(i)
-      if (isNaN(o))
-        throw("NaN");
-      return o;
-    }
+
     
 //Create a modified version of ex4 that prepends "corrupt" where an error occurs
 
@@ -25,74 +20,119 @@
 // 2 3 5 67
 // corrupt : 2 3 5 67
 
+// Parse single item
 let parse = (i) => {
-      let o = parseInt(i);
 
-      if (isNaN(o))
-        throw("NaN");
+    let o = parseInt(i);
 
-      return o;
-    }
+    if (isNaN(o))
+        throw ("NaN");
 
-    function safeParseList(text) {
-      return text
+    return o;
+};
+
+
+
+// Safely parse list
+function safeParseList(text) {
+
+    return text
         .trim()
         .split(/\s+/)
+
         .map(item => {
-          try {
-            return parse(item);
-          }
-          catch {
-            return null;
-          }
+
+            try {
+                return parse(item);
+            }
+
+            catch {
+
+                return null;
+
+            }
+
         })
+
         .filter(item => item !== null);
-    }
+}
 
-    function calculateResult(input) {
 
-      try {
 
+// Main logic
+function calculateResult5(input) {
+
+    try {
+
+        // Must contain :
         if (!input.includes(':'))
-          throw("Invalid format");
+            throw ("Invalid format");
 
-        const [factorText, multipleText] = input.split(':');
 
-        const factors = safeParseList(factorText);
-        const multiples = safeParseList(multipleText);
+        const [factorText, multipleText] =
+            input.split(':');
 
-        if (factors.length === 0 || multiples.length === 0)
-          throw("Unfixable");
+
+        const factors =
+            safeParseList(factorText);
+
+        const multiples =
+            safeParseList(multipleText);
+
+
+        // Cannot continue if empty
+        if (factors.length === 0 ||
+            multiples.length === 0)
+
+            throw ("Unfixable");
+
 
         const result = multiples
-          .filter(value =>
-            factors.some(factor =>
-              factor !== 0 && value % factor === 0
+
+            .filter(value =>
+
+                factors.some(factor =>
+
+                    factor !== 0 &&
+                    value % factor === 0
+
+                )
             )
-          )
-          .reduce((sum, value) => sum + value, 0);
+
+            .reduce(
+                (sum, value) => sum + value,
+                0
+            );
+
 
         return `${result} : ${input}`;
 
-      }
-      catch {
+    }
+
+    catch {
 
         return `corrupt : ${input}`;
 
-      }
-
     }
 
-    function runCalculation() {
+}
 
-      const input =
-        document.getElementById("inputText").value;
 
-      const result = calculateResult(input);
 
-      document.getElementById("output").textContent =
+// Button function
+function runCalculation5() {
+
+    const input =
+        document.getElementById("inputText5").value;
+
+    const result =
+        calculateResult5(input);
+
+    document.getElementById("output5").textContent =
         result;
+}
 
-    }
 
-    runCalculation();
+
+// Auto run when page loads
+runCalculation5();
