@@ -48,6 +48,7 @@ class UserCard extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
+    alert(this.getAttribute('avatar'));
     this.shadowRoot.querySelector('img').src = this.getAttribute('avatar');
   }
 
