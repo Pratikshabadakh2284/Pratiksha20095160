@@ -50,10 +50,12 @@ class UserCard extends HTMLElement {
 
   }
 
-    connectedCallback() {
+  connectedCallback() {
     this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
     alert(this.getAttribute('avatar'));
     this.shadowRoot.querySelector('img').src = this.getAttribute('avatar');
+    this.shadowRoot.querySelector('#toggle-info').addEventListener('click', () => this.toggleInfo());
+ 
   }
 
   toggleInfo() {
@@ -71,9 +73,8 @@ class UserCard extends HTMLElement {
     }
   }
 
-  connectedCallback() {
-    this.shadowRoot.querySelector('#toggle-info').addEventListener('click', () => this.toggleInfo());
-  }
+ // connectedCallback() {
+  //}
 
   disconnectedCallback() {
     this.shadowRoot.querySelector('#toggle-info').removeEventListener();
